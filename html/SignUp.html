@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+	<link rel="icon" type="image/x-icon" href="BUSINESS SUCCESS ANALYSIS.ico">
+    <link rel="stylesheet" type="text/css" href="../css/SignUp.css">
+</head>
+<body>
+    <div class="header">
+        <img src="logo.jpg" alt="Centered image">
+        <div class="user-icon">👤</div>
+        <div class="menu-icon">☰</div>
+    </div>
+    <div class="login-container">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+			
+            <label for="email" style="font-weight:bold;">Email:</label><br>
+            <input type="text" id="email" name="email" placeholder="yourname@gmail.com"><br><br>
+			
+            <label for="password" style="font-weight:bold;">Password:</label><br>
+            <input type="password" id="psw" name="password"><br><br>
+            
+            <input type="button" id="submit" value="Sign Up" style="width:90px; height:25px; font-weight:bold;">
+        </form>
+    </div>
+	
+	
+<script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyChNIERyATitYZ7Gm05siuAaPSpPYYGUPw",
+            authDomain: "sign-bf280.firebaseapp.com",
+            projectId: "sign-bf280",
+            storageBucket: "sign-bf280.appspot.com",
+            messagingSenderId: "873695775277",
+            appId: "1:873695775277:web:25984e5e4f8874adc246a4"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('submit').addEventListener('click', validateAndSignUp);
+        });
+
+        function validateAndSignUp() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('psw').value;
+            var emailRegex = /^[a-zA-Z0-9]+@gmail\.com$/;
+            var passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-]).{6,}$/;
+
+            if (!emailRegex.test(email)) {
+                alert('Email must end with "@gmail.com" and contain only letters and numbers before "@gmail.com".');
+                return false;
+            }
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long.');
+                return false;
+            }
+            if (!passwordRegex.test(password)) {
+                alert('Password must contain letters, numbers, and special characters.');
+                return false;
+            }
+
+            // If validation passes, proceed to Firebase sign-up
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed up 
+                    const user = userCredential.user;
+                    alert('User account created');
+                    // Redirect to the next HTML page
+                    window.location.href = 'index.html';
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(errorMessage);
+                });
+
+            return true;
+        }
+    </script>
+	
+</body>
+</html>

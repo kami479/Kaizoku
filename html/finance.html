@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINANCE</title>
+	<link rel="icon" type="image/x-icon" href="BUSINESS SUCCESS ANALYSIS.ico">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/finance.css">
+</head>
+<body>
+
+<div class="header">
+        <div> <i class="fas fa-user-tie" id="user"></i>
+		     <i class="fas fa-info-circle" id="info"></i>
+	    </div>
+        <a href="index.html">
+         <div class="home-icon">&#127974;</div>
+        </a>
+	
+        <div class="menu-icon" id="menu" onclick="showView('view2')">☰</div>
+
+    </div>
+	
+<div class="main_container">
+        <div class="container_1"> 
+            <div class="content">
+			<br>
+			<label>CAPITAL AMOUNT</label>
+			<input type="text" id="capital" style="width:170px; height:20px; margin-top:1px; text-align:center; background-color:rgba(153, 204, 255, 1);
+			border-color:blue;">
+			<br>
+			<br>
+			</div>
+        </div>
+		
+        <div class="container_2">
+            <div class="content">
+			<br>
+			<br>
+			<br>
+			<br>
+			</div>
+        </div>		
+		<br><br>
+		
+        <div class="container_3">
+            <div class="content">
+			<br>
+		    <br>
+			<br>
+			<br>
+			</div>
+        </div>
+</a>
+	
+	<div class="container_4">
+            <div class="content">
+			
+			<canvas id="myChart" width="500" height="230"></canvas>
+			</div>
+        </div>
+		
+	<div class="container_5">
+            <div class="content">
+			<p>---------------------------------------------------------------------------------------------------------</p>
+			<p>CASH FLOW TABLE</p>
+			<input type="text" disabled placeholder="MONTH" style="width:170px; height:45px; margin-top:1px; text-align:center;">
+            <input type="text" disabled placeholder="MONTH 1" style="width:65px; height:45px; text-align:center;">
+			<input type="text" disabled placeholder="MONTH 2" style="width:65px; height:45px; text-align:center;">
+			<input type="text" disabled placeholder="MONTH 3" style="width:65px; height:45px; text-align:center;">
+			<input type="text" disabled placeholder="MONTH 4" style="width:65px; height:45px; text-align:center;">
+			<input type="text" disabled placeholder="MONTH 5" style="width:65px; height:45px; text-align:center;"><br>
+			
+            <label for="row SALES REVENUE"></label>
+            <input type="text" disabled placeholder="SALES REVENUE" style="width:170px; height:15px; margin-top:1px; text-align:center;">
+            <input type="text" id="salesRevenue1" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text" id="salesRevenue2" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+            <input type="text" id="salesRevenue3" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text" id="salesRevenue4" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text" id="salesRevenue5" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<br>
+			
+            <label for="row LOAN"></label>
+            <input type="text" disabled placeholder="LOAN" style="width:170px; height:15px; margin-top:1px; text-align:center;">
+            <input type="text" id="loan1" style="width:65px; height:15px; text-align:center;">
+			<input type="text" disabled style="width:65px; height:15px; text-align:center;">
+            <input type="text" disabled style="width:65px; height:15px; text-align:center;">
+			<input type="text" disabled style="width:65px; height:15px; text-align:center;">
+			<input type="text" disabled style="width:65px; height:15px; text-align:center;">
+			<br>
+			
+            <label for="row TOTAL INFLOWS"></label>
+            <input type="text" disabled placeholder="TOTAL INFLOWS" style="width:170px; height:15px; margin-top:1px; text-align:center;">
+            <input type="text" id="inflow1" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text" id="inflow2" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+            <input type="text" id="inflow3" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text" id="inflow4" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text" id="inflow5" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			
+			<label for="row COGS"></label>
+            <input type="text" disabled placeholder="COST OF GOODS SOLD" style="width:170px; height:15px; margin-top:1px; text-align:center;">
+            <input type="text" id="cogs1" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text" id="cogs2" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+            <input type="text" id="cogs3" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text" id="cogs4" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text" id="cogs5" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			
+			<label for="row OPERATING EXPENSES"></label>
+            <input type="text" disabled placeholder="OPERATING EXPENSES" style="width:170px; height:15px; margin-top:1px; text-align:center;">
+            <input type="text"  id="expenses1" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text"  id="expenses2" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+            <input type="text"  id="expenses3" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text"  id="expenses4" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text"  id="expenses5" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()"><br>
+			
+			<label for="row LOAN REPAYMENT"></label>
+            <input type="text" disabled placeholder="LOAN REPAYMENT" style="width:170px; height:15px; margin-top:1px; text-align:center;">
+            <input type="text"  id="loanRepayment1" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text"  id="loanRepayment2" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+            <input type="text"  id="loanRepayment3" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text"  id="loanRepayment4" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text"  id="loanRepayment5" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()"><br>
+			
+			<label for="row TOTAL OUTFLOWS"></label>
+            <input type="text" disabled placeholder="TOTAL OUTFLOWS" style="width:170px; height:15px; margin-top:1px; text-align:center;">
+            <input type="text" id="outflow1" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text" id="outflow2" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+            <input type="text" id="outflow3" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text" id="outflow4" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text" id="outflow5" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()"><br>
+			
+			<label for="row NET CASH FLOW"></label>
+            <input type="text" disabled placeholder="NET CASH FLOW" style="width:170px; height:15px; margin-top:1px; text-align:center;">
+            <input type="text"  id="net1" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text"  id="net2" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+            <input type="text"  id="net3" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text"  id="net4" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text"  id="net5" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()"><br>
+			
+			<label for="row closing balance"></label>
+            <input type="text" disabled placeholder="CLOSING BALANCE" >
+            <input type="text"  id="balance1" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text"  id="balance1" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+            <input type="text"  id="balance1" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text"  id="balance1" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()">
+			<input type="text"  id="balance1" style="width:65px; height:15px; text-align:center;" oninput="refreshChart()"><br><br>
+			</div>
+			-------------------------------------------------------------------------------------------------<br><br>
+        </div>
+		
+		<div class="container_6">
+		<h5>CAPITAL DISTRIBUTION</h5>
+            <div class="content" id="pie-chart" style="background-color: rgba(255, 255, 255, 0.0);">
+			<canvas id="pieChartCanvas"></canvas>
+			</div>
+        </div>
+		
+		<div class="container_7">
+            <div class="content">
+			<br>
+		    <br>
+			<br>
+		    <br>
+			<br>
+			<br>
+			<br>
+		    <br>
+			<br>
+			<br>
+			<br>
+		    <br>
+			</div>
+        </div>
+		
+		<div class="container_8">
+            <div class="content">
+			<form id="myForm">
+			
+			         <label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			                 CAPITAL DISTRIBUTION MODELS</label><br><br>
+                     <input type="radio" id="option1" name="options" onclick="updatePieChart(1)">
+					 <input type="text" readonly value="SURVIVAL DISTRIBUTION" style="width:350px; height:20px; margin-top:1px; text-align:center; background-color:rgba(153, 204, 255, 1); border-radius:10px;">
+                     <br><br>
+					 
+                     <input type="radio" id="option2" name="options" onclick="updatePieChart(2)">
+					 <input type="text" readonly value="GROWTH ORIENTED DISTRIBUTION" style="width:350px; height:20px; margin-top:1px; text-align:center; background-color:rgba(153, 204, 255, 1); border-radius:10px;">
+                     <br><br>
+    
+                     <input type="radio" id="option3" name="options" onclick="updatePieChart(3)">
+					 <input type="text" readonly value="SUSTAINABILITY DISTRIBUTION" style="width:350px; height:20px; margin-top:1px; text-align:center; background-color:rgba(153, 204, 255, 1); border-radius:10px;">
+                     <br><br>
+					 
+					 <input type="radio" id="option4" name="options" onclick="updatePieChart(4)">
+					 <input type="text" readonly value="OPTIMISATION DISTRIBUTION" style="width:350px; height:20px; margin-top:1px; text-align:center; background-color:rgba(153, 204, 255, 1); border-radius:10px;">
+                     <br><br>
+    
+                     <input type="radio" id="option5" name="options" onclick="updatePieChart(5)">
+					 <input type="text" readonly value="AGILE DISTRIBUTION" style="width:350px; height:20px; margin-top:1px; text-align:center; background-color:rgba(153, 204, 255, 1); border-radius:10px;">
+                     <br> <br>
+			</form>
+			</div>
+        </div>
+	
+</div>
+
+<br><br>
+	
+	<div class="view" id="view2">
+         <nav class="navbar">
+        <ul class="nav-list">
+            <li class="nav-item">
+                    <a href="index.html" style="color:white">
+                    <i class="fas fa-home"></i>
+                    Log Out
+					</a>
+                
+            </li>
+            <li class="nav-item">
+                
+                    <i class="fas fa-info-circle"></i>
+                    About
+                
+            </li>
+            <li class="nav-item">
+                
+                    <i class="fas fa-envelope"></i>
+                    Feedback
+                
+            </li>
+        </ul>
+    </nav>
+	</div>
+<script src="../js/finance.js"></script>		
+
+</body>
+</html>
+
