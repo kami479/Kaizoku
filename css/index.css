@@ -1,0 +1,78 @@
+ body {
+            font-family: Arial, sans-serif;
+            background-image: url('../images/R1.jpg');
+			background-size: 100%;
+        }
+        .center-image {
+            position: absolute;
+            margin-top: 170px;
+            margin-left: 150px;
+			height:418px;
+			width:400px;
+			top:-50px;
+			left:50px;
+			border-radius:10px;
+        }
+		.container_1 {
+            position: absolute;
+            top:20px;
+			left:650px;
+            width: 500px; /* Adjust as needed */
+			height: 400px;
+            max-width: 900px;
+            margin: auto;
+            margin-top: 100px;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+            background-color:rgba(255, 255, 255, 0.3);
+			 border-radius:20px;
+        }
+		.header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .content {
+            font-size: 16px;
+            line-height: 1.5;
+            background-color: rgba(255, 255, 255, 0);
+            color: white;
+            font-weight: bold;
+        }
+
+        .footer {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+        }
+		
+
+/* Loading spinner styles */
+.loading-spinner {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    border: 15px solid white; /* Light grey */
+    border-top: 15px solid #3498db; /* Blue */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+    /* Hide the spinner when content is loaded */
+    .hide {
+    display: none;
+    }
+
+    input{
+		border-radius:5px;
+		text-align:center;
+	}

@@ -1,0 +1,120 @@
+        body {
+            font-family: Arial, sans-serif;
+            background-image:url('../images/factory.jpg');
+			background-size:100%;
+        }
+        .home-icon {
+            position: absolute;
+            font-size: 50px;
+            right: 0;
+			top:0px;
+			
+        }
+        .menu-icon {
+             position: absolute;
+            font-size: 52px;
+            right: 6%;
+			color:white;
+			top:1px;
+        }
+		#user {
+             position: absolute;
+            font-size: 50px;
+            right: 1280px;;
+			color:white;
+			top:10px;
+        }
+		#info {
+             position: absolute;
+            font-size: 45px;
+            right: 150px;;
+			color:white;
+			top:16px;
+        }
+        
+        .main-container {
+            width: 100%;
+            max-width: 900px; /* Adjust as needed */
+            margin: auto;
+			margin-top:100px;
+            background-color: rgba(3, 138, 255, 0.4);
+            color: #333;
+            padding: 20px;
+			text-align:center;
+			border-radius:200px;
+        }
+		#extractionContainer {
+            width: 100%;
+            max-width: 900px; /* Adjust as needed */
+            margin: auto;
+			margin-top:100px;
+            background-color: rgba(24, 138, 255, 0.4);
+            color: #333;
+            padding: 20px;
+			text-align:center;
+			border-radius:50px;
+        }
+		#managementContainer {
+            width: 100%;
+            max-width: 900px; /* Adjust as needed */
+            margin: auto;
+			margin-top:100px;
+            background-color: rgba(28, 138, 255, 0.4);
+            color: #333;
+            padding: 20px;
+			text-align:center;
+			border-radius:50px;
+        }
+		.compatibility-container{
+            width: 100%;
+            max-width: 900px; /* Adjust as needed */
+            margin: auto;
+			margin-top:100px;
+            background-color: rgba(28, 138, 255, 0.4);
+            color: #333;
+            padding: 20px;
+			text-align:center;
+			border-radius:50px;
+        }
+		.header {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+			text-align:center;
+        }
+
+        .content {
+            font-size: 16px;
+            line-height: 1.5;
+			background:linear-gradient(to right,#60A5FA,#60A5FA);
+			border-radius:45px;
+        }
+
+        .footer {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+        }
+		input{
+		border-radius:5px;
+		text-align:center;
+		}
+		button{
+		border-radius:200px;
+		color:white;
+		font-size:15px;
+		width:250px;
+		height:150px; 
+		font-weight:bold; 
+		background:linear-gradient(to right,#60A5FA,#60A5FA); 
+		position: relative;
+		}
+		ul {
+  list-style-type: disc;
+  margin-left: 25px;
+  padding: 0;
+}
+
+li {
+  text-align:left;
+}

@@ -1,0 +1,159 @@
+	 body {
+            font-family: Arial, sans-serif;
+            background-image: url('../images/R3.jpg');
+			background-size:105%;
+			}
+			
+			.home-icon {
+            position: absolute;
+            font-size: 50px;
+            right: 0;
+			top:0px;
+        }
+		.menu-icon {
+             position: absolute;
+            font-size: 52px;
+            right: 6%;
+			color:white;
+			top:1px;
+        }
+        #user {
+             position: absolute;
+            font-size: 50px;
+            right: 1280px;;
+			color:white;
+			top:10px;
+        }
+		#info {
+             position: absolute;
+            font-size: 45px;
+            right: 150px;;
+			color:white;
+			top:16px;
+        }
+        
+        .container_1 {
+            width: 500px; /* Adjust as needed */
+            max-width: 900px;
+            margin: auto;
+            margin-top: 100px;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+            background-color:rgba(255, 255, 255, 0.3);
+			border-radius:20px;
+        }
+        .container_2 {
+		    
+            width: 500px; /* Adjust as needed */
+            max-width: 900px;
+            margin: auto;
+            margin-top: 100px;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+           background-color:rgba(255, 255, 255, 0.3);
+		   border-radius:20px;
+        }
+		.container_3 {
+		    
+            width: 500px; /* Adjust as needed */
+            max-width: 900px;
+            margin: auto;
+            margin-top: 100px;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+            background-color:rgba(255, 255, 255, 0.3);
+			 border-radius:20px;
+        }
+		.container_4 {
+		    
+            width: 500px; /* Adjust as needed */
+            max-width: 900px;
+            margin: auto;
+            margin-top: 100px;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+            background-color:rgba(255, 255, 255, 0.3);
+			 border-radius:20px;
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .content {
+            font-size: 16px;
+            line-height: 1.5;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-weight: bold;
+			border-radius:10px;
+        }
+
+        .footer {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+        }
+       .container {
+            display: flex;
+            flex-wrap: wrap; /* Allows items to wrap to the next line */
+			margin-top:120px;
+            margin-right:60px;
+			margin-left:60px;
+            align-items: center; /* Aligns items vertically */
+
+        }
+        .container div {
+            line-height: 1.5;
+            flex: 1 1 500px; /* Allows items to grow and shrink, with a minimum width of 500px */
+            margin: 10px; /* Adds 10px margin around each item */
+            min-width: 500px; /* Sets the minimum width to 500px */
+            
+         }
+		
+		#view2 {
+        display: none; /* Hide by default */
+        }
+
+        #view2.active {
+        display: block; /* Show when 'active' class is added */
+        }
+
+		
+	    .navbar {
+		   position:absolute;
+           background-color: rgba(255, 255, 255, 0.1);
+	       border-radius:10px;
+           overflow: hidden;
+           width: 800px;
+           transform: translate(270px, -80px);
+           }
+
+        .nav-list {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              display: flex;
+              justify-content: center;
+        }
+
+        .nav-item {
+             margin: 0 15px;
+			 color:white;
+        }
+		
+#menu:hover {
+    color: black; /* Change to your preferred hover color */
+	cursor: pointer; /* Shows a hand pointer cursor on hover */
+    transition: color 0.3s ease; /* Optional: smooth transition effect for color change */
+}
+.images{
+		width:300px;
+		height:220px;
+		
+		}

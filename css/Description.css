@@ -1,0 +1,102 @@
+body {
+            font-family: Arial, sans-serif;
+            background-image: url('../images/5.jpg');
+			background-size:100%;
+			}
+			.header {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+			text-align:center;
+        }
+        .home-icon {
+            position: absolute;
+            font-size: 50px;
+            right: 0;
+			top:0px;
+			
+        }
+         .menu-icon {
+             position: absolute;
+            font-size: 52px;
+            right: 6%;
+			color:white;
+			top:1px;
+        }
+		#user {
+             position: absolute;
+            font-size: 50px;
+            right: 1280px;;
+			color:white;
+			top:10px;
+        }
+		#info {
+             position: absolute;
+            font-size: 45px;
+            right: 150px;;
+			color:white;
+			top:16px;
+        }
+		.container_heading {
+            width: 100%;
+            max-width: 1100px; /* Adjust as needed */
+            margin: auto;
+			margin-top:100px;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 15px;
+			text-align:center;
+			border-radius:50px;
+        }
+		.container_Competitor {
+            width: 100%;
+            max-width: 1100px; /* Adjust as needed */
+            margin: auto;
+			margin-top:100px;
+           background:linear-gradient(to right,#3d6cb9,#00fff0);
+            color: #333;
+            padding: 20px;
+			text-align:center;
+			resize: none;
+			
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+			text-align:center;
+			
+        }
+
+        .content {
+            font-size: 16px;
+            line-height: 1.5;
+			background:linear-gradient(to right,#d5f4e6,#80ced6,#87bdd8,#00ccff); 
+			
+        }
+
+        .footer {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+        }
+		.heads{
+		background-color:grey;
+		}
+		
+    
+     button{
+		border-radius:9px;
+		border-color:cyan;
+		}
+	 #activities,#keyPoints,#input,#data{
+            display: none;
+            text-align: left;
+            padding: 10px;
+			font-size:12px;
+        }
+	 #input,#results,#data,#analyse{
+            display: none;
+            text-align: center;
+            padding: 10px;
+        }

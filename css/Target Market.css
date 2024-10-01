@@ -1,0 +1,124 @@
+ body {
+    font-family: Arial, sans-serif;
+            background-image: url("../images/R4.jpg");
+            background-size: 105%;
+}
+
+#fetch-button {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+#checkbox-container {
+    margin: 20px;
+}
+.header {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .content {
+            font-size: 16px;
+            line-height: 1.5;
+            background-color: rgba(255, 255, 255, 0.0);
+            border-radius: 9px;
+			text-align: Center;
+        }
+h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+	text-align: center;
+}
+/* Style for the outer table */
+.checkbox-table {
+    position: relative;
+    border-collapse: collapse;
+    width: 40%; /* Adjust the width as needed */
+    margin: 10px auto; /* Center the table horizontally */
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* Style for table headers */
+.checkbox-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    background-color: #00bcd4; /* Cyan background color for headers */
+    color: #fff; /* White text color for better contrast */
+    font-weight: bold; /* Make header text bold */
+}
+
+/* Style for table cells */
+.checkbox-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    background-color: #f2f2f2; /* Background color for cells */
+}
+
+/* Style for nested tables */
+.checkbox-table table {
+    margin-top: 10px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Style for nested table cells */
+.checkbox-table td {
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+/* Style for checkboxes and labels */
+.checkbox-table input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Style for table rows with alternating background colors */
+.checkbox-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover effect for table rows */
+.checkbox-table tr:hover {
+    background-color: #e0e0e0;
+}
+
+ button {   
+            position: relative;
+			border-radius: 30px;
+            border-color: cyan;
+			width:500px;
+			height:200px;
+			top:180px;
+			right:-00px;
+			text-align:center;
+			background-color: rgba(255, 255, 255, 0.3);
+			font-weight: bold;
+			
+        }
+        button:hover {
+            box-shadow: 0 0 10px white;
+            transition: box-shadow 0.3s ease;
+        }
+
+textarea {
+            position: relative;
+			border-radius: 9px;
+            border-color: cyan;
+			width:490px;
+			height:40px;
+			top:20px;
+			right:-420px;
+			text-align:center;
+			background-color: rgba(255, 255, 255, 0.3);
+			font-weight: bold;
+			overflow-y: auto;
+            resize: none;
+            padding: 10px;
+            box-sizing: border-box;
+			border-radius:10px;
+        }
