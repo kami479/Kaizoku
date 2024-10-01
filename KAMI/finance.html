@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINANCE</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('city3.jpg');
+			background-size:100%;
+        .home-icon {
+            position: absolute;
+            font-size: 50px;
+            right: 0;
+			top:-10px;
+			
+        }
+        .menu-icon {
+            position: absolute;
+            font-size: 50px;
+            right: 6%;
+			top:-10px;
+			color:white;
+			
+        }
+		.logo-icon {
+            position: absolute;
+            font-size: 50px;
+            right: 95%;
+			top:2px;
+			
+        }
+		.container_header {
+            width: 100%;
+            max-width: 900px; /* Adjust as needed */
+            margin: auto;
+			margin-top:100px;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+			text-align:center;
+			resize: none;
+			
+        }
+		.container_capital {
+            width: 100%;
+            max-width: 800px; /* Adjust as needed */
+            margin: auto;
+			margin-top:100px;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+			text-align:center;
+        }
+		.container_CashFlow {
+            width: 100%;
+            max-width: 900px; /* Adjust as needed */
+            margin: auto;
+			margin-top:100px;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+			text-align:center;
+        }
+		.container_CashIn {
+            width: 100%;
+            max-width: 900px; /* Adjust as needed */
+            margin: auto;
+			margin-top:20px;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+			text-align:center;
+        }
+		.container_CashOut {
+            width: 100%;
+            max-width: 700px; /* Adjust as needed */
+            margin: auto;
+			margin-top:20px;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+			text-align:center;
+        }
+        .container_Graph {
+            width: 100%;
+            max-width: 900px; /* Adjust as needed */
+            margin: auto;
+			margin-top:100px;
+            background:linear-gradient(to right,#d5f4e6,#80ced6,#87bdd8,#f27bbd);
+            color: #333;
+            padding: 20px;
+			text-align:center;
+			resize: none;
+        }
+		.container_bar {
+            width: 100%;
+            max-width: 900px; /* Adjust as needed */
+            margin: auto;
+			margin-top:100px;
+            background:linear-gradient(to right,#d5f4e6,#80ced6,#87bdd8,#f27bbd);
+            color: #333;
+            padding: 20px;
+			text-align:center;
+			resize: none;
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+			text-align:center;
+        }
+
+        .content {
+            font-size: 16px;
+            line-height: 1.5;
+			background-color:rgba(255, 255, 255, 0.9);
+        }
+
+        .footer {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+        }
+		.heads{
+		background-color:grey;
+		}
+		
+		.icon-container {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+    }
+
+    .icon {
+    font-size: 24px;
+    cursor: pointer;
+    }
+
+   .popup {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 200px;
+    padding: 5px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+	border-radius: 10px;
+    }
+        #cashFlow {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+</style>
+</head>
+<body>
+<!--the icons-->
+    <div class="header">
+	<a href="index.html">
+        <div class="home-icon">&#127974 </div>
+		</a>
+        <div class="menu-icon">☰</div>
+		<div class="logo-icon"><img src="logo.jpg" height="50" width="60" alt="Centered image" class="center-image"></div>
+    </div>
+    
+	<div class="container_header">
+        <div class="header" style="font-size:50px;">FINANCE</div>
+		<p>---------------------------------------------------------------------------------------------------------------------------</p>
+    </div><br>
+	
+     <div class="container_capital">
+        <div class="header">CAPITAL DISTRIBUTION</div>
+        <div class="content">
+            <p class="heads">
+            <label for="row1"></label>
+            <input type="text" disabled placeholder="CATEGORIES" style="width:250px; height: 15px;">
+            <input type="number" placeholder="$$$$$$$" style="width:130px; height:15px;">
+            <input type="text" style="width:130px; height:15px;"><br>
+			</p>
+			
+			<label for="row1"></label>
+            <input type="text" disabled placeholder="CAPITAL AMOUNT" style="width:250px; height: 15px;">
+            <input type="number" id="capital" style="width:130px; height:15px;" oninput="updateChart()">
+            <input type="text" id="textArea3" placeholder="CAPITAL SOURCE" style="width:130px; height:15px;"><br>
+
+            <label for="row2"></label>
+            <input type="text" disabled placeholder="Purchased BUILDING" style="width:250px; height: 15px;">
+            <input type="number" id="building" style="width:130px; height:15px;" oninput="updateChart()">
+            <input type="text" disabled style="width:130px; height: 15px;"><br>
+
+            <label for="row3"></label>
+            <input type="text" disabled placeholder="EQUIPMENT" style="width:250px; height: 15px;">
+            <input type="number" id="equipment" style="width:130px; height:15px;" oninput="updateChart()">
+            <input type="text" disabled style="width:130px; height:15px;"><br>
+
+            <label for="row4"></label>
+            <input type="text" disabled placeholder="OFFICE SUPPLY" style="width:250px; height: 15px;">
+            <input type="number" id="supply" style="width:130px; height:15px;" oninput="updateChart()">
+            <input type="text" disabled style="width:130px; height:15px;"><br>
+
+            <label for="row5"></label>
+            <input type="text" disabled placeholder="ADVERTISING AND MARKETING" style="width:250px; height: 15px;">
+            <input type="number" id="marketing" style="width:130px; height:15px;" oninput="updateChart()">
+            <input type="text" disabled style="width:130px; height:15px;"><br>
+
+            <label for="row5"></label>
+            <input type="text" disabled placeholder="RENT" style="width:250px; height: 15px;">
+            <input type="number" id="rent" style="width:130px; height:15px;" oninput="updateChart()">
+            <input type="text" disabled style="width:130px; height:15px;"><br>
+
+            <label for="row5"></label>
+            <input type="text" disabled placeholder="Emergency" style="width:250px; height: 15px;">
+            <input type="number" id="emergency" style="width:130px; height:15px;" oninput="updateChart()">
+            <input type="text" disabled style="width:130px; height:15px;"><br>
+
+            <label for="row5"></label>
+            <input type="text" disabled placeholder="OTHER" style="width:250px; height: 15px;">
+            <input type="number" id="other" style="width:130px; height:15px;" oninput="updateChart()">
+            <input type="text" disabled style="width:130px; height:15px;"><br><br>			
+        </div>
+		
+		<div class="header">-----</div>
+			<div class="content" style="background:linear-gradient(to right,#d5f4e6,#80ced6,#87bdd8,#f27bbd);">
+		               <canvas id="myBarChart" width="200" height="100"></canvas>
+	    </div>
+		<br>			  
+		<textarea id="items1" name="items1" placeholder="ITEMS UNDER THE CATEGORIES[OPTIONAL]"
+		   style="width: 740px; height: 100px; resize:none; "></textarea><br>
+
+		   
+		    <div class="icon-container">
+            <div class="icon" onclick="togglePopup()">ℹ️</div>
+            <div class="popup" id="popup">
+                  <p>This is some information that appears in the popup.</p>
+        </div>
+        </div>
+	<div class="footer">© 2024 Your Company</div>
+    </div><br>
+  
+  
+	<div class="container_CashIn">
+        <div class="header">CASH IN ESTIMATIONS</div>
+        <div class="content">
+		    
+            
+            <input type="text" id="category" disabled placeholder="CATEGORY" style="width:250px; height: 15px;">
+            <input type="text" id="year1" disabled placeholder="1st YEAR" style="width:110px; height:15px;">
+            <input type="text" id="year2" disabled placeholder="2nd YEAR" style="width:110px; height:15px;">
+			<input type="text" id="year3" disabled placeholder="3rd YEAR" style="width:110px; height:15px;">
+			<input type="text" id="year4" disabled placeholder="4th YEAR" style="width:110px; height:15px;">
+			<input type="text" id="year5" disabled placeholder="5th YEAR" style="width:110px; height:15px;"><br>
+			
+            <label for="row2"></label>
+            <input type="text" id="sales" disabled placeholder="SALES" style="width:250px; height: 15px;">
+            <input type="text" id="sales_year1" style="width:110px; height:15px;">
+            <input type="text" id="sales_year2" style="width:110px; height:15px;">
+			<input type="text" id="sales_year3" style="width:110px; height:15px;">
+            <input type="text" id="sales_year4" style="width:110px; height:15px;">
+			<input type="text" id="sales_year5" style="width:110px; height:15px;">
+			<br>
+			
+            <label for="row3"></label>
+            <input type="text" id="investments" disabled placeholder="INVESTMENTS AND RETURNS" style="width:250px; height: 15px;">
+            <input type="text" id="investments_year1" style="width:110px; height:15px;">
+            <input type="text" id="investments_year2" style="width:110px; height:15px;">
+			<input type="text" id="investments_year3" style="width:110px; height:15px;">
+            <input type="text" id="investments_year4" style="width:110px; height:15px;">
+			<input type="text" id="investments_year5" style="width:110px; height:15px;">
+			<br>
+			
+            <label for="row4"></label>
+            <input type="text" id="intrests" disabled placeholder="INTRESTS" style="width:250px; height: 15px;">
+            <input type="text" id="intrests_year1" style="width:110px; height:15px;">
+            <input type="text" id="intrests_year2" style="width:110px; height:15px;">
+			<input type="text" id="intrests_year3" style="width:110px; height:15px;">
+            <input type="text" id="intrests_year4" style="width:110px; height:15px;">
+			<input type="text" id="intrests_year5" style="width:110px; height:15px;">
+			<br>
+			
+            <label for="row5"></label>
+            <input type="text" id="textArea13" disabled placeholder="CATEGORY" style="width:250px; height: 15px;">
+            <input type="text" id="textArea5" style="width:110px; height:15px;">
+            <input type="text" id="textArea6" style="width:110px; height:15px;">
+			<input type="text" id="textArea5" style="width:110px; height:15px;">
+            <input type="text" id="textArea6" style="width:110px; height:15px;">
+			<input type="text" id="textArea5" style="width:110px; height:15px;">
+			
+			<label for="row5"></label>
+            <input type="text" id="textArea13" disabled placeholder="CATEGORY" style="width:250px; height: 15px;">
+            <input type="text" id="textArea5" style="width:110px; height:15px;">
+            <input type="text" id="textArea6" style="width:110px; height:15px;">
+			<input type="text" id="textArea5" style="width:110px; height:15px;">
+            <input type="text" id="textArea6" style="width:110px; height:15px;">
+			<input type="text" id="textArea5" style="width:110px; height:15px;">
+			
+			<label for="row5"></label>
+            <input type="text" id="other1" disabled placeholder="OTHER" style="width:250px; height: 15px;">
+            <input type="text" id="other1_year1" style="width:110px; height:15px;">
+            <input type="text" id="other1_year2" style="width:110px; height:15px;">
+			<input type="text" id="other1_year3" style="width:110px; height:15px;">
+            <input type="text" id="other1_year4" style="width:110px; height:15px;">
+			<input type="text" id="other1_year5" style="width:110px; height:15px;"><br><br>
+			
+			<textarea id="items2" name="items2" placeholder="ITEMS UNDER THE CATEGORIES[OPTIONAL]" 
+		style="width: 800px; height: 100px; resize:none; "></textarea><br><br>
+        </div>
+		
+		<div class="icon-container">
+            <div class="icon" onclick="togglePopup1()">ℹ️</div>
+            <div class="popup" id="popup1">
+                  <p>This is some information that appears in the popup.</p>
+        </div>
+		 </div>
+		 <div class="footer">© 2024 Your Company</div>
+		 </div>
+	<div class="container_CashOut">
+        <div class="header">CASH OUT|SHORT-TERM EXPENSES|OPERATING EXPENSES</div>
+        <div class="content">
+		  <p class="heads">
+            <input type="text" id="null" disabled placeholder="CATEGORY" style="width:250px; height: 15px;">
+            <input type="text" id="null" disabled placeholder="ESTIMATED BUDGET" style="width:130px; height:15px;">
+            <input type="text" id="null" disabled placeholder="***************" style="width:130px; height:15px;">
+			</p>
+            <label for="row1"></label>
+            <input type="text" id="rent" disabled placeholder="RENT" style="width:250px; height: 15px;">
+            <input type="text" id="rent_value" style="width:130px; height:15px;">
+			<input type="text" disabled style="width:130px; height:15px;">
+			<br>
+			
+            <label for="row2"></label>
+            <input type="text" id="wages_salaries" disabled placeholder="WAGES AND SALARIES" style="width:250px; height: 15px;">
+            <input type="text" id="wages_salaries_value" style="width:130px; height:15px;">
+            <input type="text" disabled style="width:130px; height: 15px;">
+			<br>
+			
+            <label for="row3"></label>
+            <input type="text" id="loan" disabled placeholder="LOAN RETURNS" style="width:250px; height: 15px;">
+            <input type="text" id="loan_value" style="width:130px; height:15px;">
+            <input type="text" disabled style="width:130px; height:15px;">
+			<br>
+			
+            <label for="row4"></label>
+            <input type="text" id="office_supplies" disabled placeholder="OFFICE SUPPLIES" style="width:250px; height: 15px;">
+            <input type="text" id="office_supplies_value" style="width:130px; height:15px;">
+            <input type="text" disabled style="width:130px; height:15px;">
+			<br>
+			
+            <label for="row5"></label>
+            <input type="text" id="marketing1" disabled placeholder="ADVERTISING AND MARKETING" style="width:250px; height: 15px;">
+            <input type="text" id="marketing1_value" style="width:130px; height:15px;">
+            <input type="text" disabled style="width:130px; height:15px;">
+			
+			<label for="row5"></label>
+            <input type="text" id="maintanance" disabled placeholder="MAINTANANCE AND REPAIRS" style="width:250px; height: 15px;">
+            <input type="text" id="maintanance_value" style="width:130px; height:15px;">
+            <input type="text" disabled style="width:130px; height:15px;">
+			
+			<label for="row5"></label>
+            <input type="text" id="tax" disabled placeholder="TAX" style="width:250px; height: 15px;">
+            <input type="text" id="tax value" style="width:130px; height:15px;">
+            <input type="text" disabled style="width:130px; height:15px;">
+			
+			<label for="row5"></label>
+            <input type="text" id="bank_charges" disabled placeholder="BANK CHARGES" style="width:250px; height: 15px;">
+            <input type="text" id="bank_charges_value" style="width:130px; height:15px;">
+            <input type="text" disabled style="width:130px; height:15px;">
+			
+			<label for="row5"></label>
+            <input type="text" id="licences" disabled placeholder="LICENCE" style="width:250px; height: 15px;">
+            <input type="text" id="licence_value" style="width:130px; height:15px;">
+            <input type="text" disabled style="width:130px; height:15px;">
+			
+			<label for="row5"></label>
+            <input type="text" id="insurance" disabled placeholder="INSURANCE" style="width:250px; height: 15px;">
+            <input type="text" id="insurance_value" style="width:130px; height:15px;">
+            <input type="text" disabled style="width:130px; height:15px;">
+			
+			<label for="row5"></label>
+            <input type="text" id="other2" disabled placeholder="OTHER" style="width:250px; height: 15px;">
+            <input type="text" id="other2_value" style="width:130px; height:15px;">
+            <input type="text" disabled style="width:130px; height:15px;"><br><br>
+			
+			<textarea id="items3" name="items3" placeholder="ITEMS UNDER THE CATEGORIES[OPTIONAL]" 
+		style="width: 650px; height: 100px; resize:none; "></textarea><br><br>
+        </div>
+        <div class="footer">© 2024 Your Company</div>
+		
+		 <div class="header">EXPENSES</div>
+        <div class="content">
+		     <p class="heads">
+            <input type="text" id="null" disabled placeholder="CATEGORY" style="width:250px; height: 15px;">
+            <input type="text" id="null" disabled placeholder="ESTIMATED BUDGET" style="width:130px; height:15px;">
+            <input type="text" id="null" disabled placeholder="***************" style="width:130px; height:15px;">
+			</p>
+            <label for="row1"></label>
+            <input type="text" id="textArea1" disabled placeholder="COST OF GOODS SOLD" style="width:250px; height: 15px;">
+            <input type="text" id="textArea2" style="width:130px; height:15px;">
+			<input type="text" id="textArea3" style="width:130px; height:15px;">
+			<br>
+			
+            <label for="row2"></label>
+            <input type="text" id="textArea4" disabled placeholder="SELLING,GENERAL AND ADMIN" style="width:250px; height: 15px;">
+            <input type="text" id="textArea5" style="width:130px; height:15px;">
+            <input type="text" id="textArea6" style="width:130px; height: 15px;">
+			<br>
+			
+            <label for="row3"></label>
+            <input type="text" id="textArea7" disabled placeholder="OPERATING EXPENSES" style="width:250px; height: 15px;">
+            <input type="text" id="textArea8" style="width:130px; height:15px;">
+            <input type="text" id="textArea9" style="width:130px; height:15px;">
+			<br>
+			
+            <label for="row4"></label>
+            <input type="text" id="textArea10" disabled placeholder="NON-OPERATING EXPENSES" style="width:250px; height: 15px;">
+            <input type="text" id="textArea11" style="width:130px; height:15px;">
+            <input type="text" id="textArea12" style="width:130px; height:15px;">
+			<br>
+			
+            <label for="row5"></label>
+            <input type="text" id="textArea13" disabled placeholder="INCIDENTAL EXPENSES" style="width:250px; height: 15px;">
+            <input type="text" id="textArea14" style="width:130px; height:15px;">
+            <input type="text" id="textArea15" style="width:130px; height:15px;">
+			
+			<label for="row5"></label>
+            <input type="text" id="textArea13" placeholder="CATEGORY" style="width:250px; height: 15px;">
+            <input type="text" id="textArea14" style="width:130px; height:15px;">
+            <input type="text" id="textArea15" style="width:130px; height:15px;">
+			
+			<label for="row5"></label>
+            <input type="text" id="textArea13" placeholder="CATEGORY" style="width:250px; height: 15px;">
+            <input type="text" id="textArea14" style="width:130px; height:15px;">
+            <input type="text" id="textArea15" style="width:130px; height:15px;">
+			
+			<label for="row5"></label>
+            <input type="text" id="textArea13" placeholder="CATEGORY" style="width:250px; height: 15px;">
+            <input type="text" id="textArea14" style="width:130px; height:15px;">
+            <input type="text" id="textArea15" style="width:130px; height:15px;"><br><br>
+			
+			<textarea id="items4" name="items4" placeholder="ITEMS UNDER THE CATEGORIES[OPTIONAL]" 
+		style="width: 650px; height: 100px; resize:none; "></textarea><br><br>
+        </div>
+        <div class="footer">© 2024 Your Company</div>
+	
+    </div>
+	
+	<div class="container_CashFlow">
+        <div class="header">OPERATION CASH FLOW</div>
+        <div class="content" id="cashFlow">
+		    
+            <p class="heads">
+        <input type="text" id="null" disabled placeholder="CATEGORY" style="width:250px; height: 15px;">
+        <input type="text" id="null" disabled placeholder="YEAR 1" style="width:110px; height: 15px;">
+        <input type="text" id="null" disabled placeholder="YEAR 2" style="width:110px; height: 15px;">
+        <input type="text" id="null" disabled placeholder="YEAR 3" style="width:110px; height: 15px;">
+        <input type="text" id="null" disabled placeholder="YEAR 4" style="width:110px; height: 15px;">
+        <input type="text" id="null" disabled placeholder="YEAR 5" style="width:110px; height: 15px;">
+    </p>
+    <label for="row1"></label>
+    <input type="text" id="income" disabled placeholder="INCOME" style="width:250px; height: 15px;">
+    <input type="number" id="income_year1" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="income_year2" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="income_year3" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="income_year4" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="income_year5" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <br>
+    <label for="row2"></label>
+    <input type="text" id="cogs" disabled placeholder="COGS" style="width:250px; height: 15px;">
+    <input type="number" id="cogs_year1" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="cogs_year2" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="cogs_year3" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="cogs_year4" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="cogs_year5" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <br>
+    <label for="row3"></label>
+    <input type="text" id="taxation" disabled placeholder="TAX EXPENSE" style="width:250px; height: 15px;">
+    <input type="number" id="taxation_year1" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="taxation_year2" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="taxation_year3" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="taxation_year4" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="taxation_year5" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <br>
+    <label for="row4"></label>
+    <input type="text" id="wages_salary" disabled placeholder="WAGES AND SALARY" style="width:250px; height: 15px;">
+    <input type="number" id="wages_salary_year1" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="wages_salary_year2" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="wages_salary_year3" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="wages_salary_year4" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="wages_salary_year5" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <br>
+    <label for="row5"></label>
+    <input type="text" id="market" disabled placeholder="MARKETING" style="width:250px; height: 15px;">
+    <input type="number" id="market_year1" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="market_year2" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="market_year3" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="market_year4" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <input type="number" id="market_year5" style="width:110px; height: 15px;" oninput="refreshChart()">
+    <br>
+        </div>
+        <div class="footer"></div>
+		
+		
+	<div class="header">BETTER VIEW</div>
+        <div class="content" style="background:linear-gradient(to right,#d5f4e6,#80ced6,#87bdd8,#f27bbd); height:400px;">
+		<br>
+             <canvas id="myChart" width="800" height="300"></canvas>
+        </div>
+	<div class="footer"></div>
+	<br>
+	<textarea id="items5" name="items5" placeholder="ITEMS UNDER THE CATEGORIES[OPTIONAL]" 
+		style="width: 850px; height: 100px; resize:none; "></textarea><br><br>
+    </div>
+  
+
+	
+	
+	<script>
+ let barCtx = document.getElementById('myBarChart').getContext('2d');
+        let myBarChart = new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Building', 'Equipment', 'Office Supply', 'Marketing', 'Rent', 'Emergency', 'Other'],
+                datasets: [{
+                    data: [0, 0, 0, 0, 0, 0, 0],
+                    backgroundColor: [
+                        'cyan', 'cyan1', '#00EEEE', '#99FFFF', '#33CCFF', '#00FF99', '#33FFCC'
+                    ],
+                    borderColor: 'white',
+                    borderWidth: 2,
+                    hoverOffset: 10 // Adjust hover effect for bar chart
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false // This disables the legend
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.raw !== null) {
+                                    label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.raw);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        function updateChart() {
+            myBarChart.data.datasets[0].data = [
+                parseFloat(document.getElementById('building').value) || 0,
+                parseFloat(document.getElementById('equipment').value) || 0,
+                parseFloat(document.getElementById('supply').value) || 0,
+                parseFloat(document.getElementById('marketing').value) || 0,
+                parseFloat(document.getElementById('rent').value) || 0,
+                parseFloat(document.getElementById('emergency').value) || 0,
+                parseFloat(document.getElementById('other').value) || 0
+            ];
+            myBarChart.update();
+        }
+
+        
+        let lineCtx = document.getElementById('myChart').getContext('2d');
+        let myChart = new Chart(lineCtx, {
+            type: 'line',
+            data: {
+                labels: ['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'],
+                datasets: [
+                    {
+                        label: 'INCOME',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        data: []
+                    },
+                    {
+                        label: 'COGS',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        data: []
+                    },
+                    {
+                        label: 'TAX EXPENSE',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        data: []
+                    },
+                    {
+                        label: 'WAGES AND SALARY',
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        data: []
+                    },
+                    {
+                        label: 'MARKETING',
+                        borderColor: 'rgba(153, 102, 255, 1)',
+                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        data: []
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        function refreshChart() {
+            myChart.data.datasets[0].data = [
+                parseFloat(document.getElementById('income_year1').value) || 0,
+                parseFloat(document.getElementById('income_year2').value) || 0,
+                parseFloat(document.getElementById('income_year3').value) || 0,
+                parseFloat(document.getElementById('income_year4').value) || 0,
+                parseFloat(document.getElementById('income_year5').value) || 0
+            ];
+            myChart.data.datasets[1].data = [
+                parseFloat(document.getElementById('cogs_year1').value) || 0,
+                parseFloat(document.getElementById('cogs_year2').value) || 0,
+                parseFloat(document.getElementById('cogs_year3').value) || 0,
+                parseFloat(document.getElementById('cogs_year4').value) || 0,
+                parseFloat(document.getElementById('cogs_year5').value) || 0
+            ];
+            myChart.data.datasets[2].data = [
+                parseFloat(document.getElementById('taxation_year1').value) || 0,
+                parseFloat(document.getElementById('taxation_year2').value) || 0,
+                parseFloat(document.getElementById('taxation_year3').value) || 0,
+                parseFloat(document.getElementById('taxation_year4').value) || 0,
+                parseFloat(document.getElementById('taxation_year5').value) || 0
+            ];
+            myChart.data.datasets[3].data = [
+                parseFloat(document.getElementById('wages_salary_year1').value) || 0,
+                parseFloat(document.getElementById('wages_salary_year2').value) || 0,
+                parseFloat(document.getElementById('wages_salary_year3').value) || 0,
+                parseFloat(document.getElementById('wages_salary_year4').value) || 0,
+                parseFloat(document.getElementById('wages_salary_year5').value) || 0
+            ];
+            myChart.data.datasets[4].data = [
+                parseFloat(document.getElementById('market_year1').value) || 0,
+                parseFloat(document.getElementById('market_year2').value) || 0,
+                parseFloat(document.getElementById('market_year3').value) || 0,
+                parseFloat(document.getElementById('market_year4').value) || 0,
+                parseFloat(document.getElementById('market_year5').value) || 0
+            ];
+            myChart.update();
+        }
+    </script>
+
+</body>
+</html>

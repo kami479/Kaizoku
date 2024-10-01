@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+	<link rel="icon" type="image/x-icon" href="BUSINESS SUCCESS ANALYSIS.ico">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('R1.jpg');
+			background-size: 100%;
+        }
+        .center-image {
+            position: absolute;
+            margin-top: 170px;
+            margin-left: 150px;
+			height:418px;
+			width:400px;
+			top:-50px;
+			left:50px;
+			border-radius:10px;
+        }
+		.container_1 {
+            position: absolute;
+            top:20px;
+			left:650px;
+            width: 500px; /* Adjust as needed */
+			height: 400px;
+            max-width: 900px;
+            margin: auto;
+            margin-top: 100px;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+            background-color:rgba(255, 255, 255, 0.3);
+			 border-radius:20px;
+        }
+		.header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .content {
+            font-size: 16px;
+            line-height: 1.5;
+            background-color: rgba(255, 255, 255, 0);
+            color: white;
+            font-weight: bold;
+        }
+
+        .footer {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+        }
+		
+
+/* Loading spinner styles */
+.loading-spinner {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    border: 15px solid white; /* Light grey */
+    border-top: 15px solid #3498db; /* Blue */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+    /* Hide the spinner when content is loaded */
+    .hide {
+    display: none;
+    }
+
+    input{
+		border-radius:5px;
+		text-align:center;
+	}
+    </style>
+</head>
+<body>
+
+    <div class="header">
+    </div>
+    <div class="image-slots">
+	     <a href="LogIn&SignUp.html">
+        <img src="BUSINESS SUCCESS ANALYSIS.png" alt="Centered image" class="center-image">
+		</a>
+    </div>
+	
+	<div class="container_1">
+            <div class="header" style="color:white;"> 
+			<i class="fas fa-user-tie" style="position: absolute; top: 1%; right: 465px; color: black; font-size: 35px;"></i>
+			<i class="fas fa-user-tie" style="position: absolute; top: 1%; right: 23px; color: black; font-size: 35px;"></i>
+			</div>
+            <div class="content">
+			<br><br><br><br><br><br>
+			<i class="fas fa-briefcase arrow-icon" id="start" style="color: black; font-size: 120px;"></i>
+			<p id="loadingText" class="hide" style="color:blue; position: absolute; top: 47%; right: 205px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspLoading.....</p>
+			<div id="spinner" class="loading-spinner hide"></div>
+			<br><br><br><br><br><br>
+			</div>
+            <div class="footer">...</div>
+        </div>
+	
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const spinner = document.getElementById('spinner');
+    const loadingText = document.getElementById('loadingText');
+    const button = document.getElementById('start');
+
+    // Hide the spinner and loading text initially
+    spinner.classList.add('hide');
+    loadingText.classList.add('hide');
+	start.classList.remove('hide');
+
+    button.addEventListener('click', function() {
+        // Show the spinner and loading text when the button is clicked
+        spinner.classList.remove('hide');
+        loadingText.classList.remove('hide');
+		start.classList.add('hide');
+
+        // Simulate a loading period (e.g., 3 seconds) before redirecting
+        setTimeout(() => {
+            spinner.classList.add('hide');
+            loadingText.classList.add('hide');
+            // Redirect to home.html after loading
+            window.location.href = 'home.html';
+        }, 5000); // Adjust the duration as needed
+    });
+});
+
+
+</script>	
+</body>
+</html>
